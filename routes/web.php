@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\VideosController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Models\Videos;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = User::first();
+    return view('welcome', compact('user'));
 });
+
+Route::get('user', [VideosController::class, 'index']);

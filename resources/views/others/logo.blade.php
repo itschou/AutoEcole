@@ -1,0 +1,1 @@
+<img src="{{ asset('images/utils/logo.png') }}" alt="ERREUR">
