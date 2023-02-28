@@ -21,12 +21,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('IsClient')->default(false);
-            $table->integer('montantPaye')->default(null);
-            $table->integer('montantRestant')->default(null);
+            $table->integer('montant')->default(0);
+            $table->integer('montantPaye')->default(0);
             $table->string('permis');
             $table->boolean('admin')->default(false);
-            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }

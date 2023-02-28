@@ -6,6 +6,9 @@ use App\Models\Videos;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class VideosController extends Controller
 {
@@ -66,5 +69,18 @@ class VideosController extends Controller
     public function destroy(Videos $videos): RedirectResponse
     {
         //
+    }
+
+
+
+    public function like(Videos $video)
+    {
+        if (!$video->hasLiked()) {
+            $video->like();
+            $video->increment('likesCounter', 1);
+            return back()->withSuccess('La vidéo a été aimée !');
+        }else{
+            return back()->withError('Vous avez déjà aimée cette video !');
+        }
     }
 }

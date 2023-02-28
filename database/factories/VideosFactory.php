@@ -18,8 +18,8 @@ class VideosFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'path' => "image1.jpg",
-            'likesCounter' => 0
+            'path' => "video1.mp4",
+            'likesCounter' => fake()->numberBetween(2, 20)
         ];
     }
 }

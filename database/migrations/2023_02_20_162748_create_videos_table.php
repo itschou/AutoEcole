@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('path');
             $table->integer('likesCounter')->default(0);
+            $table->boolean('clicked')->default(false);
             $table->timestamps();
         });
     }
